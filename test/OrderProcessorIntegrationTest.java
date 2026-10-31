@@ -33,7 +33,7 @@ public class OrderProcessorIntegrationTest {
         inventoryService.inventory.put(1, 5);
         OrderProcessor orderProcessor = new OrderProcessor(inventoryService);
         //Ordering 2 of itemID: 1 from an available stock of 5 should reduce available stock to 3
-        boolean result = orderProcessor.processOrder(1, 2);
+        orderProcessor.processOrder(1, 2);
         assertEquals(3, inventoryService.inventory.get(1));
     }
 }

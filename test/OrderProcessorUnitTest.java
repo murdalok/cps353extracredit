@@ -12,7 +12,7 @@ public class OrderProcessorUnitTest {
         InventoryService inventoryService = Mockito.mock(InventoryService.class);
         OrderProcessor orderProcessor = new OrderProcessor(inventoryService);
         Mockito.when(inventoryService.checkStock(1,1)).thenReturn(true);
-        //processOrder() returns reserveItem()s result, so the mock must report a successful reservation
+        //processOrder() relies on return of reserveItem(), so the mock must report a successful reservation
         Mockito.when(inventoryService.reserveItem(1,1)).thenReturn(true);
         assertTrue(orderProcessor.processOrder(1, 1));
     }
